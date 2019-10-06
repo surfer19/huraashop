@@ -1,0 +1,8 @@
+<h1>PRODUCT PAGE!</h1>
+{{!-- <BasketCounter/> --}}
+{{#each this.model.products as |productUnit|}}
+  {{!-- {{debugger}} --}}
+  <ProductList @onConfirm={{action "addedItemToBasket"}} @product={{productUnit}} />
+{{/each}}
+
+<BasketCounter @productPriceBasket={{this.productPriceBasket}} @productCounter={{productCounter}} />

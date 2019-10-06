@@ -1,5 +1,11 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+{{#link-to "products" class="button"}}
+  Product Page
+{{/link-to}}
 
-{{outlet}}
+{{#link-to "order-checkout" class="button"}}
+  Order checkout
+{{/link-to}}
+
+<div class="body">
+  {{outlet}}
+</div>

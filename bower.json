@@ -1,0 +1,17 @@
+{
+  "name": "huraashop",
+  "description": "Small description for huraashop goes here",
+  "main": "",
+  "authors": [
+    "Marian <marianmrva123@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

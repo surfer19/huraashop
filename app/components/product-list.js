@@ -6,21 +6,10 @@ export default Component.extend({
     store: service('store'),
     actions: {
         addToShoppingCart(product) {
-
-            // add product to service
-            // this.cart.add(product);
             const productId = product.get('id');
             const peekBasket = this.store.peekRecord('basket', productId)
             let discount = 0
 
-            // if item.quantity >= 3 apply rule && item.title ==Strawb||Coffee
-            // if ()
-            // const discForThisItem = this.getDiscountByItemQuantity(product.get('title'), 1)
-            // this.setTotalDiscount(discForThisItem)
-
-
-            // 1. get quantity
-            // 2. apply discount
             if (!peekBasket) {
                 const record = {
                     id: productId,

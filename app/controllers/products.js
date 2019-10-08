@@ -10,6 +10,7 @@ export default Controller.extend({
     // controller
     actions: {
       addedItemToBasket(totalPrice) {
+          console.log('getTotalItems', this.cart.getTotalItems())
           this.set('productCounter', this.cart.getTotalItems());
           this.set('productPriceBasket', this.cart.getTotalPrice());
       }

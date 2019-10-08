@@ -45,7 +45,8 @@ export default Service.extend({
     setTotalPriceAfterDiscount() {
         const totalPrice = this.getTotalPrice();
         const totalDiscount = this.getTotalDiscount();
-        this.set('totalPriceAfterDiscount', totalPrice - totalDiscount)
+        const total = totalPrice - totalDiscount
+        this.set('totalPriceAfterDiscount', parseFloat(total.toFixed(2)) )
     },
 
     getTotalItems() {

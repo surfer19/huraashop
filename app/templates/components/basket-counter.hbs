@@ -1,3 +1,21 @@
-
-<p>basket counter: {{productCounter}}</p>
-<p>basket price: {{productPriceBasket}}</p>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><strong>Huraashop</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse navbar-nav mr-auto" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <span class="navbar-text mr-4">
+      Total:  ‎£{{productPriceBasket}}
+    </span>
+    <span class="navbar-text mr-3">
+      {{#link-to "order-checkout" class="button"}}
+       <FaIcon @icon="shopping-cart" />
+         <span class="shopping-circle">
+           {{productCounter}}
+         </span>
+      {{/link-to}}
+    </span>
+  </div>
+</nav>

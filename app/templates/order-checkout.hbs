@@ -1,15 +1,65 @@
-<h1>
-  ORDER CHECKOUT!
- </h1>
-
- {{#each this.model.baskets as |product|}}
-   <p>
-    <strong>Name:</strong> {{product.title}}
-    <strong>Price/unit:</strong> £{{product.price}}
-    <strong>Discount:</strong> £{{product.applyDiscount}}
-    <strong>Quantity:</strong> {{product.quantity}}
-   </p>
-   {{!-- <ProductList @onConfirm={{action "addedItemToBasket"}} @product={{productUnit}} /> --}}
- {{/each}}
-  <p>All discounts applied: {{this.model.discount}}</p>
-  <p>Total price after discount: {{this.model.totalPriceAfterDiscount}}</p>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <span class="navbar-brand navbar-text">
+   {{#link-to "products" class="button"}}
+   <strong>Huraashop</strong>
+   {{/link-to}}
+   </span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse navbar-nav mr-auto" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+     <span class="navbar-text">
+    </span>
+    </ul>
+    <span class="navbar-text mr-3">
+      {{#link-to "products" class="button"}}
+         <FaIcon @icon="list-alt" />
+         Products
+       {{/link-to}}
+    </span>
+  </div>
+</nav>
+<div class="container">
+  <div class="row text-center mt-3">
+    <div class="col-md-12">
+      <h2>Shopping cart</h2>
+    </div>
+  </div>
+  {{#if this.model.baskets}}
+  <table class="table table-borderless mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Discount</th>
+        <th scope="col">Extra items for free</th>
+        <th scope="col">Final price after discounts</th>
+      </tr>
+    </thead>
+    <tbody>
+     {{#each this.model.baskets as |product|}}
+       <tr>
+          <th>{{product.title}}</th>
+          <td>{{product.quantity}}</td>
+          <td>£{{product.price}}</td>
+          <td>£{{product.applyDiscount}}</td>
+          <td>{{product.quantityFree}}</td>
+          <td></td>
+        </tr>
+     {{/each}}
+     <tr>
+       <td class="table-dark">Sum:</td>
+       <td class="table-dark">{{this.model.numberOfItems}}</td>
+       <td class="table-dark">{{this.model.totalPrice}}</td>
+       <td class="table-dark">£{{this.model.discount}}</td>
+       <td class="table-dark">{{this.model.allItemsForFree}}</td>
+       <td class="table-dark">£{{this.model.totalPriceAfterDiscount}}</td>
+     </tr>
+    </tbody>
+  </table>
+  {{else}}
+   <h3>No items on cart!</h3>
+  {{/if}}
+</div>

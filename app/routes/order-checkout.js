@@ -8,7 +8,10 @@ export default Route.extend({
         return hash({
             baskets: this.store.findAll('basket'),
             discount: this.cart.getTotalDiscount(),
-            totalPriceAfterDiscount: this.cart.getTotalPriceAfterDiscount()
+            totalPriceAfterDiscount: this.cart.getTotalPriceAfterDiscount(),
+            totalPrice: this.cart.getTotalPrice(),
+            numberOfItems: this.cart.getTotalItems(),
+            allItemsForFree: this.cart.getAllItemsForFree()
         })
     }
 });

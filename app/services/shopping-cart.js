@@ -9,6 +9,7 @@ export default Service.extend({
     totalDiscount: 0,
     totalItems: 0,
     totalDiscountedProducts: null,
+    allItemsForFree: 0,
 
     init() {
       this._super(...arguments);
@@ -27,6 +28,14 @@ export default Service.extend({
 
     getTotalDiscount() {
         return this.get('totalDiscount')
+    },
+
+    getAllItemsForFree() {
+        return this.get('allItemsForFree')
+    },
+
+    setAllItemsForFree(number) {
+        return this.set('allItemsForFree', number)
     },
 
     getTotalPrice() {

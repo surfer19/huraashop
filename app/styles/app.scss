@@ -1,0 +1,19 @@
+
+@import "ember-cli-bootstrap-4/bootstrap";
+
+.shopping-circle {
+    border-radius: 50%;
+    position: absolute;
+    padding: 2px 5px;
+    right: 20px;
+    top: 13px;
+    font-size: 11px;
+    background: red;
+    color: white;
+    width: 19px;
+    height: 19px;
+}
+.navbar-brand:hover {
+    text-decoration: none;
+}
+

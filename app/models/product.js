@@ -3,5 +3,6 @@ const { Model } = DS;
 
 export default Model.extend({
     title: DS.attr(),
-    price: DS.attr()
+    price: DS.attr(),
+    discounted: DS.attr()
 });

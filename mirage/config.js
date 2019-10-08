@@ -6,7 +6,8 @@ export default function() {
       id: '1',
       attributes: {
         title: "Coffee",
-        price: 11.23
+        price: 11.23,
+        discounted: true
       }
     },
     {
@@ -14,7 +15,8 @@ export default function() {
       id: '2',
       attributes: {
         title: "Green tea",
-        price: 3.11
+        price: 3.11,
+        discounted: true
       }
     },
     {
@@ -22,7 +24,35 @@ export default function() {
       id: '3',
       attributes: {
         title: "Strawberries",
-        price: 5
+        price: 5,
+        discounted: true
+      }
+    },
+    {
+      type: 'product',
+      id: '4',
+      attributes: {
+        title: "Chocolate",
+        price: 5.23,
+        discounted: false
+      }
+    },
+    {
+      type: 'product',
+      id: '5',
+      attributes: {
+        title: "Juice",
+        price: 2.11,
+        discounted: false
+      }
+    },
+    {
+      type: 'product',
+      id: '6',
+      attributes: {
+        title: "Halusky",
+        price: 10,
+        discounted: false
       }
     }
   ];

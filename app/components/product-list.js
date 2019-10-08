@@ -9,6 +9,10 @@ export default Component.extend({
             const productId = product.get('id');
             const peekBasket = this.store.peekRecord('basket', productId)
             let discount = 0
+            const totalFreeItems = this.cart.getAllItemsForFree()
+
+            if (product.get('title') === 'Green tea')
+                this.cart.setAllItemsForFree(totalFreeItems+1)
 
             if (!peekBasket) {
                 const record = {
@@ -19,6 +23,7 @@ export default Component.extend({
                     price: product.get('price'),
                     applyDiscount: 0
                 }
+
                this.store.createRecord('basket',record)
                this.cart.add(record)
                this.cart.setTotalPrice(product.get('price'))
@@ -29,7 +34,7 @@ export default Component.extend({
                 // const currentQuantity = this.store.peekRecord('basket', productId).get('quantity')+1
                 const basketQuantity = peekBasket.get('quantity') + 1;
                 discount = this.getDiscountByItemQuantity(product.get('title'), basketQuantity)
-                const freeItems = product.get('title') === 'Green tea' ? basketQuantity : 0
+                const numberOfFreeItems = peekBasket.get('quantityFree')
                 // set discount
                 this.store.findRecord('basket', productId, { backgroundReload: false }).then(item => {
                     this.cart.setTotalItems(this.cart.getTotalItems()+1)
@@ -38,8 +43,9 @@ export default Component.extend({
                     this.cart.setTotalPrice(product.get('price'))
                     this.cart.setTotalPriceAfterDiscount()
                     item.incrementProperty('quantity');
+                    // item.incrementProperty('quantityFree');
                     item.set('applyDiscount', discount)
-                    item.set('quantityFree', freeItems)
+                    item.set('quantityFree', product.get('title') === 'Green tea' ? numberOfFreeItems+1 : numberOfFreeItems)
                     this.onConfirm()
                 })
             }

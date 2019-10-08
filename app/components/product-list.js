@@ -22,7 +22,7 @@ export default Component.extend({
                this.store.createRecord('basket',record)
                this.cart.add(record)
                this.cart.setTotalPrice(product.get('price'))
-               this.cart.setTotalItems(1)
+               this.cart.setTotalItems(this.cart.getTotalItems()+1)
                this.onConfirm()
             }
             else {
@@ -32,7 +32,7 @@ export default Component.extend({
                 const freeItems = product.get('title') === 'Green tea' ? basketQuantity : 0
                 // set discount
                 this.store.findRecord('basket', productId, { backgroundReload: false }).then(item => {
-                    this.cart.setTotalItems(basketQuantity)
+                    this.cart.setTotalItems(this.cart.getTotalItems()+1)
                     this.cart.add(item)
                     this.cart.setTotalDiscount({discount: discount, title: product.get('title')})
                     this.cart.setTotalPrice(product.get('price'))

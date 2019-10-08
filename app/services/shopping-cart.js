@@ -30,7 +30,8 @@ export default Service.extend({
     },
 
     getTotalPrice() {
-        return this.get('totalPrice')
+        const total = this.get('totalPrice');
+        return parseFloat(total.toFixed(2));
     },
 
     setTotalPrice(newPrice) {

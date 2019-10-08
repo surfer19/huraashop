@@ -5,8 +5,8 @@ export default function() {
       type: 'product',
       id: '1',
       attributes: {
-        title: "Grand Old Mansion",
-        price: 3
+        title: "Coffee",
+        price: 11.23
       }
     },
     {
@@ -14,7 +14,7 @@ export default function() {
       id: '2',
       attributes: {
         title: "Green tea",
-        price: 11.23
+        price: 3.11
       }
     },
     {

@@ -32,7 +32,8 @@ module.exports = {
         'server/**/*.js'
       ],
       parserOptions: {
-        sourceType: 'script'
+        sourceType: 'script',
+        legacyDecorators: true
       },
       env: {
         browser: false,
